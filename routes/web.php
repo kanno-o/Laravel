@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,4 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/posts/{id}', function ($id) {
-    // return '<h1>パラメータテスト'. $id . '番目</h1>';
-    return view('posts.post', ['id' =>$id]);
-});
+Route::get('/posts/{id}', PostsController::class);
