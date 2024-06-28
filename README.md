@@ -64,3 +64,37 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## コンテナの起動と停止
+- 次のコマンドを実行してください。
+
+ # クローン先にカレントディレクトリを移動
+ # すでに移動している場合は不要
+ cd [クローン先のディレクトリ]
+
+ # コンテナをdocker-compose経由で起動
+ docker conpose up -d --build
+
+  - 環境を停止する場合は次のコマンドを実行
+    docker compose stop
+
+  - 停止中の環境を再構築する場合は次のコマンドを実行
+    docker compose up -d
+
+  - Dockerfile、docker-compose.ymlを編集した場合は環境を再構築
+    docker compose down
+    docker conpose up -d --build
+
+ # Sail の起動
+  - Sail を使用して Docker コンテナを起動します。
+    ./vendor/bin/sail up
+
+  - Sail のエイリアス作成（オプション）
+    alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+  - エイリアスを作成した場合は、次のように実行できます。
+    sail up
+
+  # プロジェクトの停止
+  - 開発を終了する場合は、次のコマンドでコンテナを停止できます。
+    ./vendor/bin/sail down
